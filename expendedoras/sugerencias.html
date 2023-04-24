@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sugerencias</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="sugerenciasStyle.css">
+</head>
+<body>
+	<h2 id="textoComentarios">Ingrese los comentarios a realizar a la pagina</h2>
+	<form action="sugerencias.php" method="post">
+		<label for="nombre">Nombre:</label>
+		<input type="text" name="nombre" id="nombre" required>
+		<br>
+		<label for="correo">Correo:</label>
+		<input type="email" name="correo" id="correo" required>
+		<br>
+		<label for="comentario">Comentario:</label>
+		<textarea name="comentario" id="comentario" required></textarea>
+		<br>
+		<input type="submit" value="Enviar">
+</body>
+</html>

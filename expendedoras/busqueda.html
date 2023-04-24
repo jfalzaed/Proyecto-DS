@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Búsqueda</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="registroStyle.css">
+    <script>    
+        const blockPrices = {
+            "Bloque 29": {
+                "Doritos": 2500,
+                "Margaritas Onduladas Tomate": 2500,
+                "Papas Monterojo Lima-Limón": 3000,
+                "Papas Monterojo BBQ Dulce": 3000,
+                "Natuchips Platano Verde": 2500,
+                "D´todito Limón": 3100,
+                "Galletas Saludables": 2900,
+                "Torta Zanahoria": 3500,
+                "Choclitos Limón": 2000,
+                "Tostacos Picante": 1400,
+                "Gomitas Trululu": 2700,
+                "Pastel Hojaldrado Las Caseritas": 2000,
+
+            },
+            "Bloque 33": {
+				"Doritos":2000,
+                "Papas Monterojo Lima-Limón": 3000,
+                "Galletas Saludables": 2900,
+                "Pastel Hojaldrado Las Caseritas": 2000,
+                "Tocinetas Gomitas": 3600,
+                "Alfajor": 3300,
+                "Trident": 1700,
+                "Barquillo": 2500,
+                "Chocolatina Jumbo": 300,
+                "WaferJet": 1100,
+                "Deditos": 1300,
+                "CocaCola Lata": 3300,
+
+            },
+			"bloque 34":
+			{
+				"pan":200
+			}
+
+
+        };
+
+		const ProductImages = {
+			"Doritos": "https://cdn.shopify.com/s/files/1/0492/2458/1274/products/supermercados_la_vaquita_supervaquita_doritos_185gr_mega_queso_familiar_pasabocas_512x512.jpg?v=1620489636",
+			"Margaritas Onduladas Tomate": "https://s.cornershopapp.com/product-images/1837665.jpg?versionId=xT1OQzlSXw8htDoUW.vDLEGJweUplRL.",
+			"Papas Monterojo Lima-Limón": "https://jumbocolombiaio.vtexassets.com/arquivos/ids/211171/7709990576856.jpg?v=637814218023400000",
+			"Papas Monterojo BBQ Dulce": "https://www.papasmonterojo.com/wp-content/uploads/2018/10/bbq.png",
+			"Natuchips Platano Verde": "https://www.natuchips.com/wp-content/uploads/2018/10/platano-verde.png",
+			"D´todito Limón": "https://www.dtodito.com.co/wp-content/uploads/2018/10/limon.png",
+			"Galletas Saludables": "https://www.galletassaludables.com.co/wp-content/uploads/2018/10/avena.png",
+			"Torta Zanahoria": "https://www.tortaslasabrosita.com/wp-content/uploads/2018/10/zanahoria.png",
+			"Choclitos Limón": "https://www.choclitos.com.co/wp-content/uploads/2018/10/limon.png",
+			"Tostacos Picante": "https://www.tostacos.com.co/wp-content/uploads/2018/10/picante.png",
+			"pan": "https://ymcabogota.org/wp-content/uploads/2020/06/IMG_5183-2.jpg"
+			}
+  
+
+        function masBarato(producto) {
+            let min = Infinity;
+            let minBloque = "";
+
+            for (let bloque in blockPrices) {
+                if (blockPrices[bloque][producto] < min) {
+                    min = blockPrices[bloque][producto];
+                    minBloque = bloque;
+                }
+            }
+
+            document.getElementById("buscar").textContent = minBloque;
+        }
+
+		function mostrarBloques(){
+			let bloques = [];
+			
+			for (let bloque in blockPrices){
+				bloques.push(bloque);
+			}
+
+			cont = listaBloques = document.querySelector("#bloques");
+			for (let i = 0; i < bloques.length; i++){
+				let item = document.createElement("li");
+				item.textContent = bloques[i];
+				cont.appendChild(item);
+			}
+		}
+
+		function mostrarProductosYprecios(bloque){
+			let productos = [];
+			
+			for (let producto in blockPrices[bloque]){
+				productos.push(producto + ": " + blockPrices[bloque][producto]);
+			}
+
+			cont = lista = document.querySelector("#productos");
+			for (let i = 0; i < productos.length; i++){
+				let item = document.createElement("li");
+				item.textContent = productos[i];
+				cont.appendChild(item);
+			}
+		}
+
+		function limpiar(){
+			document.getElementById("productos").textContent = "";
+		}
+
+		function buscarLink(producto){
+			let link = ProductImages[producto];
+			document.getElementById("imagen").src = link;
+		}
+
+		var opciones = [];
+		for (let bloque in blockPrices){
+			opciones.push(bloque);
+		}
+
+		var productos = [];
+		for (let bloque in blockPrices){
+			for (let producto in blockPrices[bloque]){
+				productos.push(producto);
+			}
+		}
+
+
+
+		document.addEventListener('DOMContentLoaded', function() {
+						  // Seleccionamos el elemento select
+  		var select = document.getElementById('bloqueSelect');
+  
+
+  		// Generamos las opciones y las añadimos al select
+  		for (var i = 0; i < opciones.length; i++) {
+    		var option = document.createElement('option');
+   		 	option.value = opciones[i];
+    		option.text = opciones[i];
+    		select.appendChild(option);
+ 	 	}
+
+		  var select1 = document.getElementById('productoSelect');
+
+		for (var i = 0; i < productos.length; i++) {
+			var option = document.createElement('option');
+			option.value = productos[i];
+			option.text = productos[i];
+			select1.appendChild(option);
+		}
+
+
+		});
+
+
+    </script>
+</head>
+<body>
+        <div class="row">
+
+            <div class="col">
+				<h2>Buscar Productos</h2>
+                <select id="productoSelect"></select>
+                <button onclick="masBarato(document.getElementById('productoSelect').value);buscarLink(document.getElementById('productoSelect').value)">Buscar</button>
+				<img id="imagen" src="https://cdn-icons-png.flaticon.com/512/1554/1554591.png" alt="" width="100" height="100">
+
+				
+            </div>
+            <div class="col">
+                <h2>Bloque recomendado</h2>
+                <p id="buscar"></p>
+				<button onclick="window.location.href='mapa.html'">Ver en mapa</button>
+            </div>
+
+        </div>
+		<div class = "row">
+
+			<div class="col">
+			<h2>Todos los bloques</h2>
+			
+			<button onclick="mostrarBloques()">Mostrar bloques</button>
+
+			<p id="bloques"></p>
+			</div>
+
+			<div class="col">
+				<h2>Productos de un bloque</h2>
+				<select id="bloqueSelect"></select>
+				<button onclick="limpiar();mostrarProductosYprecios(document.getElementById('bloqueSelect').value)">Mostrar productos</button>
+				<ul id="productos"></ul>
+			</div>
+
+
+
+		</div>
+  
+</body>
+
+</html>
