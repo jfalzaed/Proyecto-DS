@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mapa</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/mapaStyle.css">
+</head>
+<body>
+
+	<section>
+		<h2>busqueda de bloque</h2>
+		<form id="busquedaForm">
+			<label>Bloque</label>
+			<input type="text" placeholder="Ingrese el bloque" id="bloque" required autofocus>
+			<input type="submit" value="Buscar">
+			<button onclick="window.location.href='sugerencias.html'">¿Alguna sugerencia?</button>
+	</section>
+	<div id="map-container">
+	<img id="map-image" src="data/mapa.jpg" alt="Mapa">
+	<img id="circle-image" src="data/circulo.png" alt="circulo">
+	</div>
+	
+</body>
+<script src="js/mapa.js"></script>
+
+</html>

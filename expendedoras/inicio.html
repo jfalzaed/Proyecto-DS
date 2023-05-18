@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="css/inicioStyle.css">
+    <style>
+        /* Estilo para el contenedor del formulario y la imagen */
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Estilo para la imagen */
+        #maquinaexp {
+            max-width: 200px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="container">
+            <img id="maquinaexp" src="https://img.freepik.com/iconos-gratis/maquina-expendedora_318-768718.jpg?q=10&h=200" alt="Máquina">
+            <div>
+                <h2>Iniciar Sesión</h2>
+                <form id="loginForm">
+                    <label>Correo</label>
+                    <input type="email" placeholder="Ingrese su correo" id="correo" required autofocus>
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="Ingrese su contraseña" id="contrasena" required>
+                    <input type="submit" value="Iniciar Sesión">
+                </form>
+                <p>¿No tienes usuario? <a href="registro.html">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/inicio.js"></script>
+</body>
+</html>
